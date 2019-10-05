@@ -22,7 +22,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
 	public User getUserLogin(@RequestBody String username, @RequestBody String pass) {
-		return us.getUserByUsernameAndPass();	
+		return us.getUserByUsernameAndPass(username, pass);	
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
@@ -41,7 +41,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/role/{id}", method = RequestMethod.GET)
-	public List<Course> getUserRole(@PathVariable int id) {
+	public Role getUserRole(@PathVariable int id) {
 		return us.getUser(id).getR_id();
 	}
 	
@@ -57,7 +57,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable int id) {
-		return us.deleteUser(id);
+		us.deleteUser(us.getUser(id));
 	}
 	
 	
