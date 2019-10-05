@@ -9,7 +9,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public boolean testMethod() {
-		return true;
+		return false;
 	}
 
 }
