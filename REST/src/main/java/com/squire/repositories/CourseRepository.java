@@ -12,9 +12,7 @@ import com.squire.models.User;
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Integer>{
 	
-	List<Note> findAllNotes(Note notes);
 	List<Course> findByTrainer(User trainer);
 	List<Course> findByName(String name);
-	List<User> findUsers(User user);
 
 }

@@ -39,20 +39,20 @@ public class User {
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="courses_users_jt",
-				joinColumns = @JoinColumn(name="id"),
-				inverseJoinColumns = @JoinColumn(name="id"))
+				joinColumns = @JoinColumn(name="c_id"),
+				inverseJoinColumns = @JoinColumn(name="u_id"))
 	private List<Course> courses;
 	
 	@OneToOne
-	@JoinColumn(name="r_id", referencedColumnName="id")
-	private Role r_id;
+	@JoinColumn(name="r_id")
+	private Role role;
 
 	public User() {
 		super();
 	}
 
 	public User(int id, String username, String pass, String firstname, String lastname, List<Course> courses,
-			Role r_id) {
+			Role role) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -60,7 +60,7 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.courses = courses;
-		this.r_id = r_id;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -112,11 +112,11 @@ public class User {
 	}
 
 	public Role getR_id() {
-		return r_id;
+		return role;
 	}
 
 	public void setRole(Role r_id) {
-		this.r_id = r_id;
+		this.role = role;
 	}
 
 	@Override
