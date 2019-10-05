@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired
 	UserService us;
 
-	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/user/login", method = RequestMethod.POST, consumes = "application/json")
 	public User getUserLogin(@RequestBody String username, @RequestBody String pass) {
 		return us.getUserByUsernameAndPass(username, pass);	
 	}
