@@ -24,17 +24,17 @@ public class NoteController {
 	}
 	
 //	@RequestMapping(value = "/notes/course/{id}", method = RequestMethod.GET)
-//	public List<Note> getNotesByCourse(@PathVariable int id) {
+//	public List<Note> getNotesByCourse(@PathVariable("id") int id) {
 //		return ns.getNotesByCourse(id);
 //	}
 	
 	@RequestMapping(value = "/note/{id}", method = RequestMethod.GET)
-	public Note getNotesById(@PathVariable int id) {
+	public Note getNotesById(@PathVariable("id") int id) {
 		return ns.getNote(id);
 	}
 	
 	@RequestMapping(value = "/note/{id}", method = RequestMethod.DELETE)
-	public void deleteNote(@PathVariable int id) {
+	public void deleteNote(@PathVariable("id") int id) {
 		ns.deleteNote(ns.getNote(id));
 	}
 	

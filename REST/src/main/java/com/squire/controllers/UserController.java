@@ -26,28 +26,28 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public User getUserById(@PathVariable int id) {
+	public User getUserById(@PathVariable("id") int id) {
 		return us.getUser(id);
 	}
 	
 	@RequestMapping(value = "/user/username/{username}", method = RequestMethod.GET)
-	public User getUserByUsername(@PathVariable String username) {
+	public User getUserByUsername(@PathVariable("username") String username) {
 		return us.getUserByUsername(username);
 	}
 	
 	@RequestMapping(value = "/user/courses/{id}", method = RequestMethod.GET)
-	public List<Course> getUserCourses(@PathVariable int id) {
+	public List<Course> getUserCourses(@PathVariable("id") int id) {
 		return us.getUser(id).getCourses();
 	}
 	
 	@RequestMapping(value = "/user/role/{id}", method = RequestMethod.GET)
-	public Role getUserRole(@PathVariable int id) {
+	public Role getUserRole(@PathVariable("id") int id) {
 		return us.getUser(id).getR_id();
 	}
 	
-	@RequestMapping(value = "/users/role/{role}", method = RequestMethod.GET)
-	public List<User> getUsersByRole(@PathVariable Role role) {
-		return us.getUsersByRole(role);
+	@RequestMapping(value = "/users/role/{id}", method = RequestMethod.POST)
+	public List<User> getUsersByRole(@PathVariable("id") int id) {
+		return us.getUsersByRole(id);
 	}
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
@@ -56,7 +56,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-	public void deleteUser(@PathVariable int id) {
+	public void deleteUser(@PathVariable("id") int id) {
 		us.deleteUser(us.getUser(id));
 	}
 	
