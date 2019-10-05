@@ -1,3 +1,4 @@
+
 package com.squire.repositories;
 
 import java.util.List;
