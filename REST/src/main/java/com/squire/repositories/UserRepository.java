@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.squire.models.Course;
 import com.squire.models.Role;
 import com.squire.models.User;
 
