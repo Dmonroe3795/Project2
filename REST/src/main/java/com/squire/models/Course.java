@@ -32,7 +32,7 @@ public class Course {
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="courses_users_jt", 
 				joinColumns= @JoinColumn(name="c_id"),
 				inverseJoinColumns= @JoinColumn(name="u_id"))
