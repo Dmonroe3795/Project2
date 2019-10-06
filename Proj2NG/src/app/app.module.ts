@@ -15,6 +15,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotesComponent } from './component/notes/notes.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import { NotesComponent } from './component/notes/notes.component';
     LoginComponent,
     TopBannerComponent,
     NavComponent,
-    NotesComponent
+    NotesComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSelectModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
