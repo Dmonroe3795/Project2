@@ -35,11 +35,6 @@ public class UserController {
 		return us.getUserByUsername(username);
 	}
 	
-	@RequestMapping(value = "/user/courses/{id}", method = RequestMethod.GET)
-	public List<Course> getUserCourses(@PathVariable("id") int id) {
-		return us.getUser(id).getCourses();
-	}
-	
 	@RequestMapping(value = "/user/role/{id}", method = RequestMethod.GET)
 	public Role getUserRole(@PathVariable("id") int id) {
 		return us.getUser(id).getR_id();

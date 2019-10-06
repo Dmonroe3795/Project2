@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.squire.models.Role;
 import com.squire.models.User;
 import com.squire.repositories.RoleRepository;
 import com.squire.repositories.UserRepository;
@@ -36,4 +35,5 @@ public class UserService {
 	public void deleteUser(User u) {
 		ur.delete(u);
 	}
+
 }	

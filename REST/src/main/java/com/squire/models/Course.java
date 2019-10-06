@@ -56,6 +56,13 @@ public class Course {
 		
 	}
 
+	public Course(int id, User trainer, String name) {
+		super();
+		this.id = id;
+		this.trainer = trainer;
+		this.name = name;
+	}
+
 	public int getId() {
 		
 		return id;

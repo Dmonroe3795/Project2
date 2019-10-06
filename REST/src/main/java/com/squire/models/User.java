@@ -37,10 +37,7 @@ public class User {
 	@Column(name="lastname")
 	private String lastname;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="courses_users_jt",
-				joinColumns = @JoinColumn(name="c_id"),
-				inverseJoinColumns = @JoinColumn(name="u_id"))
+	@ManyToMany(mappedBy = "users")
 	private List<Course> courses;
 	
 	@OneToOne
@@ -103,19 +100,19 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
+//	public List<Course> getCourses() {
+//		return courses;
+//	}
+//
+//	public void setCourses(List<Course> courses) {
+//		this.courses = courses;
+//	}
 
 	public Role getR_id() {
 		return role;
 	}
 
-	public void setRole(Role r_id) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
