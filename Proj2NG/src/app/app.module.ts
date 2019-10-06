@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
@@ -15,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotesComponent } from './component/notes/notes.component';
+import { LandingComponent } from './component/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { NotesComponent } from './component/notes/notes.component';
     LoginComponent,
     TopBannerComponent,
     NavComponent,
-    NotesComponent
+    NotesComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { NotesComponent } from './component/notes/notes.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
