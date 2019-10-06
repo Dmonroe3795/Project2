@@ -16,8 +16,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { NotesComponent } from './component/notes/notes.component';
+
 import { LandingComponent } from './component/landing/landing.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import {MatSelectModule} from '@angular/material/select';
+
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +33,15 @@ import { LandingComponent } from './component/landing/landing.component';
     TopBannerComponent,
     NavComponent,
     NotesComponent,
-    LandingComponent
+    LandingComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSelectModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -41,8 +50,11 @@ import { LandingComponent } from './component/landing/landing.component';
     MatListModule,
     MatTabsModule,
     MatExpansionModule
+    MatFormFieldModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
