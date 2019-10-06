@@ -49,7 +49,7 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     MatIconModule,
     MatListModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
     MatFormFieldModule
   ],
   providers: [
