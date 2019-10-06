@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { NotesComponent } from './component/notes/notes.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import {MatSelectModule} from '@angular/material/select';
 
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
@@ -25,13 +27,15 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     LoginComponent,
     TopBannerComponent,
     NavComponent,
-    NotesComponent
+    NotesComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSelectModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
