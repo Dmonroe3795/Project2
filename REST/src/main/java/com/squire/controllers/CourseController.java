@@ -3,6 +3,7 @@ package com.squire.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.squire.models.Course;
 import com.squire.services.CourseService;
 
 @RestController
+@CrossOrigin
 public class CourseController {
 	
 	@Autowired
