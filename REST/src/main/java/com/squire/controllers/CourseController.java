@@ -20,21 +20,21 @@ public class CourseController {
 	@Autowired
 	CourseService cs;
 	
-	@RequestMapping(value = "/course", method = RequestMethod.GET)
+	@RequestMapping(value = "/courses", method = RequestMethod.GET)
 	public List<Course> getAllCourses() {
 		
 		return cs.getAllCourses();
 		
 	}
 	
-	@RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/courses/{id}", method = RequestMethod.GET)
 	public Course getCourseById(@PathVariable("id") int id) {
 		
 		return cs.getCourse(id);
 		
 	}
 	
-	@RequestMapping(value = "/course", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/courses", method = RequestMethod.POST, consumes = "application/json")
 	public Course createCourse(@RequestBody Course course) {
 		
 //		return cs.createCourse(course);
@@ -42,7 +42,7 @@ public class CourseController {
 		
 	}
 	
-	@RequestMapping(value = "/course", method = RequestMethod.PUT, consumes = "application/json")
+	@RequestMapping(value = "/courses", method = RequestMethod.PUT, consumes = "application/json")
 	public Course updateCourse(@RequestBody Course course) {
 		
 //		return cs.updateCourse(course);
@@ -50,14 +50,14 @@ public class CourseController {
 		
 	}
 	
-	@RequestMapping(value = "/course/{id}", method = RequestMethod.DELETE) 
+	@RequestMapping(value = "/courses/{id}", method = RequestMethod.DELETE) 
 	public void deleteCourseById(@PathVariable("id") int id) {
 		
 //		cs.deleteCourse(cs.getCourseById(id));
 		
 	}
 	
-	@RequestMapping(value = "/course/user/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/courses/users/{id}", method = RequestMethod.GET)
 	public List<Course> getUserCourses(@PathVariable("id") int id) {
 		return cs.getAllCoursesOfUser(id);
 	}

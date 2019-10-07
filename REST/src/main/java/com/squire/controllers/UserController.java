@@ -22,37 +22,37 @@ public class UserController {
 	@Autowired
 	UserService us;
 
-	@RequestMapping(value = "/user/login", method = RequestMethod.POST, consumes = "application/json")
-	public User getUserLogin(@RequestBody String username, @RequestBody String pass) {
-		return us.getUserByUsernameAndPass(username, pass);	
+	@RequestMapping(value = "/users/login", method = RequestMethod.POST, consumes = "application/json")
+	public User getUserLogin(@RequestBody User user) {
+		return us.getUserByUsernameAndPass(user.getUsername(), user.getPass());	
 	}
 	
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
 	public User getUserById(@PathVariable("id") int id) {
 		return us.getUser(id);
 	}
 	
-	@RequestMapping(value = "/user/username/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/username/{username}", method = RequestMethod.GET)
 	public User getUserByUsername(@PathVariable("username") String username) {
 		return us.getUserByUsername(username);
 	}
 	
-	@RequestMapping(value = "/user/role/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/{id}/role", method = RequestMethod.GET)
 	public Role getUserRole(@PathVariable("id") int id) {
 		return us.getUser(id).getR_id();
 	}
 	
-	@RequestMapping(value = "/users/role/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/users/role/{id}", method = RequestMethod.GET)
 	public List<User> getUsersByRole(@PathVariable("id") int id) {
 		return us.getUsersByRole(id);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/users", method = RequestMethod.POST, consumes = "application/json")
 	public User createUser(@RequestBody User user) {
 		return us.createUser(user);
 	}
 	
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable("id") int id) {
 		us.deleteUser(us.getUser(id));
 	}

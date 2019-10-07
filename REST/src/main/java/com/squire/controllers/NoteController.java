@@ -20,7 +20,7 @@ public class NoteController {
 	@Autowired
 	NoteService ns;
 
-	@RequestMapping(value = "/note", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/notes", method = RequestMethod.POST, consumes = "application/json")
 	public Note createNote(@RequestBody Note note) {
 		return ns.createNote(note);
 	}
@@ -30,12 +30,12 @@ public class NoteController {
 //		return ns.getNotesByCourse(id);
 //	}
 	
-	@RequestMapping(value = "/note/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/notes/{id}", method = RequestMethod.GET)
 	public Note getNotesById(@PathVariable("id") int id) {
 		return ns.getNote(id);
 	}
 	
-	@RequestMapping(value = "/note/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/notes/{id}", method = RequestMethod.DELETE)
 	public void deleteNote(@PathVariable("id") int id) {
 		ns.deleteNote(ns.getNote(id));
 	}
