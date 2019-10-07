@@ -17,7 +17,7 @@ public class Note {
 	@Id
 	private int id;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "notes")
 	private List<Course> courses;
 	
 	@Column(name = "text")
@@ -53,7 +53,7 @@ public class Note {
 		
 	}
 
-	public void setN_id(int n_id) {
+	public void setN_id(int id) {
 		
 		this.id = id;
 		

@@ -27,5 +27,13 @@ public class CourseService {
 	public void deleteCourse(Course c) {
 		cr.delete(c);
 	}
+
+	public List<Course> getAllCourses() {
+		return (List<Course>) cr.findAll();
+	}
+	
+	public List<Course> getAllCoursesOfUser(int id) {
+		return (List<Course>) cr.findByUsers_id(id);
+	}
 	
 }

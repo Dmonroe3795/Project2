@@ -2,6 +2,7 @@ package com.squire.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,26 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.squire.models.Course;
+import com.squire.services.CourseService;
 
 @RestController
 public class CourseController {
 	
-//	@Autowired
-//	CourseService cs;
+	@Autowired
+	CourseService cs;
 	
 	@RequestMapping(value = "/course", method = RequestMethod.GET)
 	public List<Course> getAllCourses() {
 		
-//		return cs.getAllCourses();
-		return null;
+		return cs.getAllCourses();
 		
 	}
 	
 	@RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
 	public Course getCourseById(@PathVariable("id") int id) {
 		
-//		return cs.getCourseById(id);
-		return null;
+		return cs.getCourse(id);
 		
 	}
 	
@@ -53,6 +53,11 @@ public class CourseController {
 		
 //		cs.deleteCourse(cs.getCourseById(id));
 		
+	}
+	
+	@RequestMapping(value = "/course/user/{id}", method = RequestMethod.GET)
+	public List<Course> getUserCourses(@PathVariable("id") int id) {
+		return cs.getAllCoursesOfUser(id);
 	}
 
 }
