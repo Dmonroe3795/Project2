@@ -26,7 +26,7 @@ public class SquireRestApplication {
 	@Bean
     CommandLineRunner init(StorageService storageService) {
         return (args) -> {
-            storageService.deleteAll();
+            storageService.deleteAll(); //MARK FOR LATER
             storageService.init();
         };
     }
