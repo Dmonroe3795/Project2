@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    this.user.login({username :this.us, pass :this.ps}).subscribe(
+    this.user.login(this.us, this.ps).subscribe(
 
       (response) => {
 

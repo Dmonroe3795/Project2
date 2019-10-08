@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { NotesComponent } from './component/notes/notes.component';
+import { CourseComponent } from './component/course/course.component';
 
 import { LandingComponent } from './component/landing/landing.component';
 import { CreateAccountComponent } from './component/create-account/create-account.component';
@@ -34,7 +35,8 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     NavComponent,
     NotesComponent,
     LandingComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
