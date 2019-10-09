@@ -1,3 +1,6 @@
-<p>course works!</p>
-
-<button (click)="displayUserCourses()">Test</button>
+<h3>{{c.id}}. {{c.name}}</h3>
+<p>{{c.users.length}} Students</p>
+<app-notes *ngFor="let n of c.notes"
+    [note] = "n"
+>
+</app-notes>
