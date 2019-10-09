@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
 import { course } from '../models/course';
@@ -13,27 +13,12 @@ import { course } from '../models/course';
 
 export class CourseComponent implements OnInit {
 
-  constructor(private course : CourseService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  userId : number = 2;
 
-  allCoursesObs : Observable<course[]> = this.course.getUserCourses(this.userId);
-  allUserCourses : course[] = [];
-
-  displayUserCourses() {
-    console.log("subscribe")
-    this.allCoursesObs.subscribe(
-      (response) => {
-        console.log(response);
-        this.allUserCourses = response;
-      },
-      (response) => {
-
-      }
-      // finally?
-    )
-  }
+  @Input() c : course;
+  
 }
