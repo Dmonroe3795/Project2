@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { AccountService } from '../../services/account.service';
+import { Observable } from 'rxjs';
+import { user } from '../models/user';
+import { GlobalService } from 'src/app/services/global.service';
 
-import { course } from '../models/course';
-import { CourseService } from 'src/app/services/course.service';
-import { note } from '../models/note';
+// import { course } from '../models/course';
+// import { CourseService } from 'src/app/services/course.service';
+// import { note } from '../models/note';
 
 @Component({
   selector: 'app-login',
@@ -14,25 +17,29 @@ import { note } from '../models/note';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private user :AccountService, private course : CourseService) { 
-    this.displayUserCourses();
+  constructor(private router: Router, private userv :AccountService,private global: GlobalService) { 
+    // this.displayUserCourses();
   }
 
   ngOnInit() {
   }
-  
+
   us :string;
   ps :string;
   result :string;
-
+  u: user;
+  currUser: Observable<user>;
   login() {
-
-    this.user.login(this.us, this.ps).subscribe(
+    this.currUser = this.userv.login(this.us,this.ps);
+    this.currUser.subscribe(
 
       (response) => {
 
-        console.log("Success!");
-        
+        console.log(response);
+        this.u = response;
+        // this.router.navigate(['/dashboard']);
+        this.global.currentUser=this.u;
+        console.log(this.global.currentUser);
       },
 
       (response) => {
@@ -45,19 +52,19 @@ export class LoginComponent implements OnInit {
   }
 
 
-  allCoursesObs : Observable<course[]> = this.course.getUserCourses(2);
-  allUserCourses : course[] = [];
+  // allCoursesObs : Observable<course[]> = this.course.getUserCourses(2);
+  // allUserCourses : course[] = [];
 
-  displayUserCourses() {
-    this.allCoursesObs.subscribe(
-      (response) => {
-        this.allUserCourses = response;
-      },
-      (response) => {
+  // displayUserCourses() {
+  //   this.allCoursesObs.subscribe(
+  //     (response) => {
+  //       this.allUserCourses = response;
+  //     },
+  //     (response) => {
 
-      }
-      // finally?
-    )
-  }
+  //     }
+  //     // finally?
+  //   )
+  // }
   
 }
