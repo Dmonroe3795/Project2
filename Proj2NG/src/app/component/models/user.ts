@@ -9,7 +9,7 @@ export class user{
     firstname : string;
     lastname : string;
     courses : Array<course>;
-    role : role;
+    r_id : number;
 
 
     
@@ -20,14 +20,14 @@ export class user{
         firstname : string,
         lastname : string,
         courses : Array<course>,
-        role : role){
+        r_id : number){
         this.id = id;
         this.username = username;
         this.pass = pass;
         this.firstname = firstname;
         this.lastname = lastname;
         this.courses = courses;
-        this.role = role;
+        this.r_id = r_id;
     }
 
 }
