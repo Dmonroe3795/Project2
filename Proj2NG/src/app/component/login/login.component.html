@@ -1,7 +1,9 @@
 <p>This is the login component</p>
 <div id="loginForm">
+    <div *ngFor="let course of allUserCourses">
+      <app-course [c] = "course"></app-course>
+    </div>
     <!-- <form> -->
-        
         <fieldset>
             Username:<br>
             <legend>Login Information</legend>

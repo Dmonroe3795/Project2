@@ -3,6 +3,10 @@ import { Router } from "@angular/router";
 import { Observable } from 'rxjs';
 import { AccountService } from '../../services/account.service';
 
+import { course } from '../models/course';
+import { CourseService } from 'src/app/services/course.service';
+import { note } from '../models/note';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,15 +14,16 @@ import { AccountService } from '../../services/account.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private user :AccountService) { }
+  constructor(private router: Router, private user :AccountService, private course : CourseService) { 
+    this.displayUserCourses();
+  }
 
   ngOnInit() {
   }
-
+  
   us :string;
   ps :string;
   result :string;
-
 
   login() {
 
@@ -37,6 +42,22 @@ export class LoginComponent implements OnInit {
       }
       
     );  
+  }
+
+
+  allCoursesObs : Observable<course[]> = this.course.getUserCourses(2);
+  allUserCourses : course[] = [];
+
+  displayUserCourses() {
+    this.allCoursesObs.subscribe(
+      (response) => {
+        this.allUserCourses = response;
+      },
+      (response) => {
+
+      }
+      // finally?
+    )
   }
   
 }
