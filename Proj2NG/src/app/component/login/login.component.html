@@ -1,21 +1,22 @@
 <p>This is the login component</p>
 <div id="loginForm">
-    <div *ngFor="let course of allUserCourses">
+    <!-- <div *ngFor="let course of allUserCourses">
       <app-course [c] = "course"></app-course>
-    </div>
+    </div> -->
     <!-- <form> -->
         <fieldset>
             Username:<br>
             <legend>Login Information</legend>
-            <input type="text" id={{username}}><br>
+            <input type="text" [(ngModel)]= "us"><br>
             Password:<br>
-            <input type="text" id={{password}}>
+            <input type="text" [(ngModel)]="ps">
             <button (click) = "login()"
             mat-stroked-button
             >Login</button>
-            <p>{{result}}</p>
+            <p>{{u.id}}</p>
         </fieldset>
     <!-- </form> -->
+    <button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
 </div>
 
 <!--Work for current version of login page-->

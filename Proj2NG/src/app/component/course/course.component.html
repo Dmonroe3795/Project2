@@ -1,5 +1,6 @@
 <h3>{{c.id}}. {{c.name}}</h3>
 <p>{{c.users.length}} Students</p>
+<button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
 <app-notes *ngFor="let n of c.notes"
     [note] = "n"
 >
