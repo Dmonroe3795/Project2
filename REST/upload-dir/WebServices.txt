@@ -1,0 +1,156 @@
+Web Services
+
+SOA 	- Service Oriented Architecture
+	- Emphasis on loose-coupling and black-box implementation
+	- Building architecture for business and enterprise applications
+
+Service - A discrete unit of functionality
+	- Login service, bank transaction service
+	- Services can be accessed remotely and independentally
+	- Services are self contained
+	- Services might be composed of other services
+
+As companies grow, requirements or changes to software happen. Slight changes
+in requirements between departments can be very difficult to implement.
+
+	- What have we used to create web services?
+		- Spring MVC -> Spring Rest (@RestController)
+		- This also abstracted away Servlets
+
+ReST	- Representational State Transfer
+	- It is an architectire used to construct web APIs
+		- Uses soley HTTP
+		- Can produce serveral media types: JSON, XML, etc.
+
+ReST Contraints (6 of them) - RESTful APIs follow the constraints
+
+1. Client Server architecture - Separation of concerns
+	- The UI is independent from the resources
+
+2. REST is stateless
+	- No maintaining of the session or information stored on the server
+
+3. Cachability
+	- Ability to choose to cache a response on the client side
+
+4. Must be a layed system
+	- You can stack a web service on top of another web service
+	- You can create isolation and is often used for security
+
+5. Code on demand (optional)
+	- The ability to transfer executable code
+
+6. Uniform Interface
+	- A standard set of rules for clients to more easily access and use REST
+	6.1 	- Identification of resources
+		- Resources are identified via the URI
+	
+	6.2	- Manipulation of resources through representations
+		- The response that you receive from a REST call can take many forms
+			- JSON, XML, Plain Text, PNG
+		- You do not send back the resource itself, but a representation of it
+	
+	6.3	- Self-descriptive Messages
+		- Each request contains all the information necessary to process the request
+		- It should have all the security tokens on how to interpret the message
+	
+	6.4	- Hypermedia as the enguine of the application state (HATEOAS)
+		- A response should have links to other helpful URI's in the WebService
+
+--------------------------------------------------------------------------------------------
+
+HTTP	- HyperText Transfer Protocol
+	- Any protocol is a way of transferring information
+	- FTP, TCP, UDP, HTTPS, SFTP, SSH, RDP, telnet, SMS, SMTP (email), pop3
+
+HTTP Status Codes:
+
+100s - Information
+200s - Success
+300s - Redirects
+400s - Client side errors
+500s - Server side errors
+
+HTTP Methods
+	CREATE - POST
+	READ   - GET
+	UPDATE - PUT
+	DELETE - DELETE
+
+	PATCH, OPTIONS, TRACE, HEAD
+
+idempotent 	
+	- Math term for an operation that can be performed one to infinity times
+	  and it does not change the result
+		- *1, |abs|, /1, *+-^0, %, (+1 -1)
+	- POST		- Not Idempotent
+	- GET		- Idempotent
+	- PUT		- Idempotent
+	- DELETE	- Idempotent 	
+	
+
+HTTP Request
+	- Request Headers, meta information about the request
+	- HTTP Version
+	- Request Body, GET will have empty body
+	- Method
+	- URL
+HTTP Response
+	- Response Headers
+	- HTTP Version
+	- Response Body
+	- Status Code
+
+-------------------------------------------------------------------------------------
+
+SOAP 	- Simple Object Access Protocol
+	- WSDL 	- Web Service Definition(old)/Description(now) Language (wisdle)
+		- A contract with all the necessary information to use my web service
+		- Tags in WSDL, written in XML
+			- <binding> - Defines protocol and how to connect to my service
+			- <service> - Where to access the service endpoint
+			- <operations> - methods available for my web service
+				- input and output tags for method(operation)
+			- <type> - breaks down any custon or special type/objects into primitives
+			- <message> - A message will contain the parameters for an input and output
+				<message>int age, String name</message>
+			- <definitions> - root tag of WSDL
+	- SOAP uses only XML
+	- SOAP can use various protocols, not just HTTP
+	- SOAP message, what is returned from an application using SOAP, in XML
+		<envelope>
+		<header>
+		optional, meta info, mustUnderstand - says message must be read w out errors to be properly processed
+		</header>
+		<body>
+		contains message
+		<fault>optional, info about errors</fault>	
+			- fault, uses fault code
+				- 1 - versionMismatch - invalid namespace in SOAP envelope
+				- 2 - mustUnderstand - some child element w mustunderstan attr was not understood(read w error(s))
+				- 3 - Client - the message was incorrectly formed or had incorrect info
+				- 4 - Server - probalem w server, message could not proceed
+		</body>
+		</envelope>
+
+	- SOAP can be implemented Contract first or Contract last
+		- Contract first - Define a WSDL and make an application based on that contract
+		- Contract last	 - Develop and application and define a WSDL based on that app
+
+	- kind of dying, overly structured, banks/gov
+	- can use w rest,c an implement each other, only http and xml
+	 
+
+
+* REST vs SOAP
+	REST					SOAP
+	architectual style			protocol
+	no contract/should be endpoint docs	contract based - WSDL
+	JSON, XML, TXT, HTML			XML
+	low bandwidth. JSON pretty small	each envelope is pretty large, all xml w any message
+	cachable				not cachable
+	HTTP					(m)any protocols				
+	lose/low client/service coupling	tight coupling
+	
+Marshalling	- Java Object into XML	- Object to any Media Type
+Unmarchalling	- XML into Java Object	
