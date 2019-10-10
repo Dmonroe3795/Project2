@@ -15,11 +15,7 @@ export class NoteService {
     return this.http.get(url,{responseType:'text'});
   }
 
-  uploadFile(file: any) : Observable<string> {
-    let head = new HttpHeaders({ 
-    'Access-Control-Allow-Origin': '*'});
-    let options =  {headers: head}
-    let body = {file: file}
-    return this.http.post<string>("http://localhost:9090/",body,options);
+  uploadFile(file: FormData) : Observable<string> {
+    return this.http.post("http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/",file,{responseType:'text'});
   }
 }
