@@ -8,12 +8,15 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
         <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-            <input type="file" (change)="onFileSelect($event)" name="fileSelect" />
+            <input type="file" (change)="onFileSelect($event)" name="fileSelect" id="fileSelector"/>
             <button type="submit">Upload</button>
         </form>
 
         <button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
-        <app-notes *ngFor="let no of c.notes" [n]="no">
-        </app-notes>
+        <div *ngFor="let no of c.notes">
+            {{no}}
+            <app-notes [n]="no">    
+            </app-notes>
+        </div>
     </mat-expansion-panel>
 </mat-accordion>
