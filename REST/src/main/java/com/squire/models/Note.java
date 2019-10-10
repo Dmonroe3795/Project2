@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,9 @@ import javax.persistence.Table;
 public class Note {
 	
 	@Id
+	@Column(name="id")
+	@SequenceGenerator(sequenceName="note_id_maker", name="n_id_seq", initialValue=1, allocationSize=1)
+	@GeneratedValue(generator="n_id_seq", strategy=GenerationType.SEQUENCE)
 	private int id;
 	
 	@ManyToMany(mappedBy = "notes")
