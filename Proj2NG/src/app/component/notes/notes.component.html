@@ -1,19 +1,18 @@
 <mat-expansion-panel>
     <mat-expansion-panel-header>
         <mat-panel-title>
-            <h3>{{note.filename}}</h3>
+            <h3>{{n.filename}}</h3>
         </mat-panel-title>
         <mat-panel-description style="padding-top: 2.5%">
-            {{note.trainer.firstname}}
-            {{note.trainer.lastname}}
+            {{n.trainer.firstname}}
+            {{n.trainer.lastname}}
         </mat-panel-description>
     </mat-expansion-panel-header>
 
-<p>Filename: {{note.filename}}</p>
-<p>Available: {{note.visible}}</p>
-<p>Author: {{note.trainer.username}}</p>
+<p>Filename: {{n.filename}}</p>
+<p>Available: {{n.visible}}</p>
+<p>Author: {{n.trainer.username}}</p>
 <p>{{fileText}}</p>
+<a href={{downloadLink}}>Download</a>
 </mat-expansion-panel>
 
-
-<a href={{downloadLink}}>Download</a>

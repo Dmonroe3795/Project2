@@ -21,10 +21,11 @@ export class NotesComponent implements OnInit {
 
   @Input() n : note;
   
-  file: Observable<string> = this.noteServ.readFile(this.n.filename);
+  file: Observable<string>;
   fileText: string;
   downloadLink :string;
   getNote() {
+    this.file =  this.noteServ.readFile(this.n.filename);
     this.file.subscribe(
       (response) => {
         this.fileText = response;
