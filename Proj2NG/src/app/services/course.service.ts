@@ -15,6 +15,6 @@ export class CourseService {
     'Access-Control-Allow-Origin': '*'});
     let options =  {headers: head}
 
-    return this.http.get<course[]>("http://localhost:9090/courses/users/" + id, options);
+    return this.http.get<course[]>("http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/courses/users/" + id, options);
   }
 }
