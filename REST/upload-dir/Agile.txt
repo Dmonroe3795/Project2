@@ -1,0 +1,36 @@
+Agile
+
+Teams - Adaptive, Flexible
+
+Sprints - A given amount of time to complete a given set of tasks (1-4 week time period)
+
+1. Working software over documentation
+2. Do not rigidly adhere to plans
+	- You need to be *Agile* and adapt to change
+3. Customer collaboration over contracts (opposite: waterfall method)
+
+
+Scrum
+	Product Owner - representative  of the stakeholders. this is not the client/customer
+		- Set priorities and goals of the the application
+
+	Scrum Master - part coach/timekeeper/cheerleader/technical lead
+
+	Scrum Team - software developers
+
+
+-Sprint Timeline-
+Sprint Prosective 	- Product owner will set goals for the sprint - rack and stack
+			- Scrum Master will assign duties
+			- Time it takes depends on length of sprint
+Daily Standups		- 10-15 minutes max. Lead by the Scrum Master
+			- What you did yesterday and what problem occured
+* notes
+- Your goal is that the product works at the end of every sprint
+- Another goal of the sprint model is to achieve the MVP 
+	- Minimum Viable Product
+	- barebones
+	- at the end of every sprint
+* end notes
+Sprint Retrospective	- Sprint review
+			- What got done, what needs to get done, lessons
