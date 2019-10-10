@@ -1,21 +1,32 @@
-<p>This is the login component</p>
 <div id="loginForm">
-    <!-- <div *ngFor="let course of allUserCourses">
+  <!-- <div *ngFor="let course of allUserCourses">
       <app-course [c] = "course"></app-course>
     </div> -->
-    <!-- <form> -->
-        <fieldset>
-            Username:<br>
-            <legend>Login Information</legend>
-            <input type="text" [(ngModel)]= "us"><br>
-            Password:<br>
-            <input type="text" [(ngModel)]="ps">
-            <button (click) = "login()"
-            mat-stroked-button
-            >Login</button>
-        </fieldset>
-    <!-- </form> -->
-    <!-- <p>{{global.currentUser.r_id.id}}</p>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Login
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <fieldset> -->
+      <!-- Username:<br> -->
+      <!-- <legend>Login Information</legend> -->
+      <mat-form-field>
+        <input type="text" [(ngModel)]="us" matInput placeholder="Username">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input type="text" [(ngModel)]="ps" matInput placeholder="Password">
+      </mat-form-field>
+    </mat-card-content>
+    <p style="color: red">{{result}}</p>
+    <mat-card-actions>
+      <button (click)="login()" mat-stroked-button>Login</button>
+    </mat-card-actions>
+    <!-- </fieldset> -->
+  </mat-card>
+  <!-- <p>{{global.currentUser.r_id.id}}</p>
     <button *ngIf="global.isTrainer">Trainer Only Button</button> -->
 </div>
 

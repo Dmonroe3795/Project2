@@ -30,28 +30,40 @@ export class LoginComponent implements OnInit {
   u: user = new user(0, null, null, null, null, null, 0);
   currUser: Observable<user>;
   login() {
-    this.currUser = this.userv.login(this.us,this.ps);
-    this.currUser.subscribe(
-
-      (response) => {
-
-        console.log(response);
-        this.u = response;
-        this.global.currentUser=this.u;
-        if(this.u.r_id.id == 1){
-          this.global.isTrainer = true;
-        }
-        console.log(this.global.currentUser);
-        this.router.navigate(['/dashboard']);
-      },
-
-      (response) => {
-
-        console.log("Failure!");
-        
-      }
+    if (this.us == null || this.ps == null ) {
+      this.result = "Please enter a valid Username and Password."
+    }
+    else {
+      this.currUser = this.userv.login(this.us,this.ps);
       
-    );  
+      this.currUser.subscribe(
+
+        (response) => {
+          if(response == null) {
+            console.log("Calls first response")
+            this.result = "Please enter a valid Username and Password."
+          }
+          else {
+            console.log(response);
+            this.u = response;
+            this.global.currentUser=this.u;
+            if(this.u.r_id.id == 1){
+              this.global.isTrainer = true;
+            }
+            console.log(this.global.currentUser);
+            this.router.navigate(['/dashboard']);
+          }
+        },
+
+        (response) => {
+
+          console.log("Failure! Called 2nd response");
+          this.result = "Please enter a valid Username and Password."
+          
+        }
+        
+      );  
+    }
   }
 
 

@@ -17,9 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
+import {MatInputModule } from '@angular/material/input'
 import { NotesComponent } from './component/notes/notes.component';
 import { CourseComponent } from './component/course/course.component';
+import { MatCardModule } from '@angular/material/card';
 
 import { LandingComponent } from './component/landing/landing.component';
 import { CreateAccountComponent } from './component/create-account/create-account.component';
@@ -56,6 +58,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     MatIconModule,
     MatListModule,
     MatTabsModule,
+    MatCardModule,
+    MatInputModule,
     MatExpansionModule,
     MatFormFieldModule
   ],

@@ -25,7 +25,9 @@ export class NotesComponent implements OnInit {
   fileText: string;
   downloadLink :string;
   getNote() {
+
     this.file = this.noteServ.readFile(this.n.filename);
+
     this.file.subscribe(
       (response) => {
         this.fileText = response;
