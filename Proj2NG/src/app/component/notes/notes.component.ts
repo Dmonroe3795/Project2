@@ -15,7 +15,7 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.n)
+    console.log('note comp '+this.n)
     this.getNote();
   }
 
@@ -25,7 +25,9 @@ export class NotesComponent implements OnInit {
   fileText: string;
   downloadLink :string;
   getNote() {
-    this.file =  this.noteServ.readFile(this.n.filename);
+
+    this.file = this.noteServ.readFile(this.n.filename);
+
     this.file.subscribe(
       (response) => {
         this.fileText = response;
