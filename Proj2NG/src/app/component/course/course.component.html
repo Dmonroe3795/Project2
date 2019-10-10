@@ -1,5 +1,8 @@
 <h3>{{c.id}}. {{c.name}}</h3>
 <p>{{c.users.length}} Students</p>
+
+<input type="file" (change)="getFile($event)" id="fileUpload"/>
+<button id="upload">uplaod</button>
 <button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
 <app-notes *ngFor="let n of c.notes"
     [note] = "n"
