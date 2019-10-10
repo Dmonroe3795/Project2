@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.global.isTrainer = true;
         }
         console.log(this.global.currentUser);
-        //this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']);
       },
 
       (response) => {

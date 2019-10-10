@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { GlobalService } from '../../services/global.service';
+import { Router } from '@angular/router';
+import { user } from '../models/user';
 
 @Component({
   selector: 'app-nav',
@@ -18,6 +20,13 @@ export class NavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public global : GlobalService) {}
+  constructor(private breakpointObserver: BreakpointObserver, public global : GlobalService, public router :Router) {}
 
+  logout() {
+
+    this.global.currentUser = new user(0, null, null, null, null, null, 0);
+    this.router.navigate(['/login']);
+    this.global.isTrainer = false;
+    
+  }
 }
