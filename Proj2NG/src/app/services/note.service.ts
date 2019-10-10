@@ -9,9 +9,8 @@ export class NoteService {
 
   constructor(private http: HttpClient) { }
 
-  readFile() : Observable<string> {
-    let filename = "Agile.txt"
-    let url = "http://localhost:9090/files/Agile.txt"
+  readFile(filename :string) : Observable<string> {
+    let url = "http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/files/" + filename;
     return this.http.get(url,{responseType:'text'});
   }
 
