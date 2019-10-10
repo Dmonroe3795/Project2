@@ -1,13 +1,19 @@
-<h3>{{c.id}}. {{c.name}}</h3>
-<p>{{c.users.length}} Students</p>
+<!-- <h3>{{c.id}}. {{c.name}}</h3> -->
+<!-- <p>{{c.users.length}} Students</p> -->
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h3>{{c.name}}</h3>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+            <input type="file" (change)="onFileSelect($event)" name="fileSelect" />
+            <button type="submit">Upload</button>
+        </form>
 
-<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-    <input type="file" (change)="onFileSelect($event)" name="fileSelect"/>
-    <button type="submit">Upload</button>
-</form>
-
-<button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
-<app-notes *ngFor="let n of c.notes"
-    [note] = "n"
->
-</app-notes>
+        <button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
+        <app-notes *ngFor="let no of c.notes" [n]="no">
+        </app-notes>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -15,19 +15,20 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(note)
+    console.log(this.n)
     this.getNote();
   }
 
-  @Input() note : note;
+  @Input() n : note;
   
-  file: Observable<string> = this.noteServ.readFile();
+  file: Observable<string> = this.noteServ.readFile(this.n.filename);
   fileText: string;
-
+  downloadLink :string;
   getNote() {
     this.file.subscribe(
       (response) => {
         this.fileText = response;
+        this.downloadLink = "http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/files/" + this.n.filename;
       },
       (response) => {
         console.log(response)

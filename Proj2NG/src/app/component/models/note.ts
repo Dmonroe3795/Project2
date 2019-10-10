@@ -4,7 +4,7 @@ import { user } from './user';
 export class note {
 
     id : number;
-    filename : String;
+    filename : string;
     visible : boolean;
     trainer : user;
 

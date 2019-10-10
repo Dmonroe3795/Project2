@@ -1,8 +1,19 @@
-<h3>File {{note.n_id}}</h3>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h3>{{note.filename}}</h3>
+        </mat-panel-title>
+        <mat-panel-description style="padding-top: 2.5%">
+            {{note.trainer.firstname}}
+            {{note.trainer.lastname}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
 <p>Filename: {{note.filename}}</p>
 <p>Available: {{note.visible}}</p>
 <p>Author: {{note.trainer.username}}</p>
 <p>{{fileText}}</p>
+</mat-expansion-panel>
 
 
-<a href="http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/files/project2.txt">Download</a>
+<a href={{downloadLink}}>Download</a>

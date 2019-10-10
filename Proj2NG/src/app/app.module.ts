@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatExpansionModule, MatAccordion } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
