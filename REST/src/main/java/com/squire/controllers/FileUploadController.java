@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,8 +50,9 @@ public class FileUploadController {
 		
 	}
 	
-	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
+	@RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET, 
+	produces = "text/plain; charset=utf-8")
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 		
 		Resource file = ss.loadAsResource(filename);
@@ -60,6 +63,7 @@ public class FileUploadController {
 	}
 	
 	@PostMapping("/")
+	
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, 
 			RedirectAttributes redirectAttributes) {
 		
@@ -67,7 +71,7 @@ public class FileUploadController {
 		redirectAttributes.addFlashAttribute("message", 
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 		
-		return "redirect:/";
+		return file.getOriginalFilename();
 		
 	}
 	

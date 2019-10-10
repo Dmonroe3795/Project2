@@ -20,8 +20,8 @@ public class Note {
 	@ManyToMany(mappedBy = "notes")
 	private List<Course> courses;
 	
-	@Column(name = "text")
-	private String text;
+	@Column(name = "filename")
+	private String filename;
 	
 	@Column(name = "visible")
 	private boolean visible;
@@ -36,12 +36,12 @@ public class Note {
 		
 	}
 
-	public Note(int id, String text, boolean visible, User trainer) {
+	public Note(int id, String filename, boolean visible, User trainer) {
 		
 		super();
 		
 		this.id = id;
-		this.text = text;
+		this.filename = filename;
 		this.visible = visible;
 		this.trainer = trainer;
 		
@@ -59,15 +59,15 @@ public class Note {
 		
 	}
 
-	public String getText() {
+	public String getFilename() {
 		
-		return text;
+		return filename;
 		
 	}
 
-	public void setText(String text) {
+	public void setFilename(String filename) {
 		
-		this.text = text;
+		this.filename = filename;
 		
 	}
 
@@ -98,7 +98,7 @@ public class Note {
 	@Override
 	public String toString() {
 		
-		return "Note [id=" + id + ", text=" + text + ", visible=" + visible + "]";
+		return "Note [id=" + id + ", filename=" + filename + ", visible=" + visible + "]";
 		
 	}
 
