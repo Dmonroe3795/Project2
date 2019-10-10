@@ -5,8 +5,6 @@ import { GlobalService } from 'src/app/services/global.service';
 import { NoteService } from 'src/app/services/note.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { note } from '../models/note';
-
-
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
@@ -29,46 +27,38 @@ export class CourseComponent implements OnInit {
   @Input() c: course;
 
   file: any;
-  filename: string;
   uploadForm: FormGroup;
-  formData = new FormData();
+  formData: FormData = new FormData();
   uploadFile: Observable<string> = this.noteService.uploadFile(this.formData);
 
   noteData: note;
   addNote: Observable<note>;
-  // note : note;
 
   updateCourse: Observable<course>;
-  // updatedCourse: course;
 
   onFileSelect(event) {
     if (event.target.files.length > 0) {
       this.file = event.target.files[0];
       this.uploadForm.get('files').setValue(this.file);
-      this.file = null;
-      (<HTMLInputElement>document.getElementById("fileSelector")).value = '';
-
     }
   }
 
   onSubmit() {
-    this.formData.append('file', this.uploadForm.get('files').value);
+    this.formData.set('file', this.uploadForm.get('files').value);
 
     this.uploadFile.subscribe(
       (response) => {
-        this.filename = response;
         this.noteData = new note(0, response, true, this.global.currentUser);
         this.c.notes.push(this.noteData);
+        
         this.courseService.updateCourse(this.c).subscribe((newCourse) => {
           this.c = newCourse;
-        })
+          this.uploadForm.get('files').setValue(null);
+        }, res=>{console.log(res)})
       },
       (response) => {
         console.log(response);
       }
     )
-    this.filename = null;
-    this.noteData = null;
-    this.addNote = null;
   }
 }
