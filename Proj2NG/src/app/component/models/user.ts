@@ -20,7 +20,7 @@ export class user{
         firstname : string,
         lastname : string,
         courses : Array<course>,
-        r_id : number){
+        r_id : any){
         this.id = id;
         this.username = username;
         this.pass = pass;

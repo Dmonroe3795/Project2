@@ -8,7 +8,7 @@ export class GlobalService {
 
   title : string = 'Squire';
   currentUser: user = new user(-1, null, null, null, null, null, 0);
-  
+  isTrainer :boolean = false;
 
 //   {
 //     "id": 1,
