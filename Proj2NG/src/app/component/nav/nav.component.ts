@@ -25,8 +25,7 @@ export class NavComponent {
   logout() {
 
     this.global.currentUser = new user(0, null, null, null, null, null, false);
-    this.router.navigate(['/login']);
-    this.global.isTrainer = false;
+    this.router.navigate(['/landing']);
     
   }
 }
