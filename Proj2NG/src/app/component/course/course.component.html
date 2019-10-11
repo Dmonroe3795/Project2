@@ -1,33 +1,35 @@
 <!-- <h3>{{c.id}}. {{c.name}}</h3> -->
 <!-- <p>{{c.users.length}} Students</p> -->
-<mat-accordion style="width: 75%;">
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        style="border: 0.5px solid black; margin-bottom: 20px;">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <h3>{{c.name}}</h3>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        
-        <mat-tab-group>
-            <mat-tab label="Notes">
+<!-- <mat-accordion style="width: 75%;"> -->
+<mat-expansion-panel style="border: 0.5px solid black; margin-bottom: 20px;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h3>{{c.name}}</h3>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
 
-                <button *ngIf="this.global.currentUser.isInstructor" type="submit" (click)="openUploadDialog()"
-                    mat-icon-button matTooltip="Upload file">
-                    <mat-icon>note_add</mat-icon>
-                </button>
+    <mat-tab-group>
+        <mat-tab label="Notes">
+            <button *ngIf="this.global.currentUser.isInstructor" type="submit" (click)="openUploadDialog()"
+                mat-icon-button matTooltip="Upload file">
+                <mat-icon>note_add</mat-icon>
+            </button>
+            <button *ngIf="this.global.currentUser.isTrainer" (click)="openAddUserDialog()" mat-icon-button
+                matTooltip="Add user to course">
+                <mat-icon>person_add</mat-icon>
+            </button>
 
-                <div *ngFor="let no of c.notes">
+            <div *ngFor="let no of c.notes">
 
-                    <app-notes [n]="no">
-                    </app-notes>
-                </div>
-            </mat-tab>
-            <mat-tab label="Users">
-                <button *ngIf="this.global.currentUser.isInstructor"  (click)="openAddUserDialog()" mat-icon-button matTooltip="Add user">
-                    <mat-icon color="primary">person_add</mat-icon>
-                </button>
-            </mat-tab>
-        </mat-tab-group>
-    </mat-expansion-panel>
-</mat-accordion>
+                <app-notes [n]="no"></app-notes>
+
+            </div>
+        </mat-tab>
+        <mat-tab label="Users">
+            <button *ngIf="this.global.currentUser.isInstructor"  (click)="openAddUserDialog()" mat-icon-button matTooltip="Add user">
+                <mat-icon color="primary">person_add</mat-icon>
+            </button>
+        </mat-tab>
+    </mat-tab-group>
+</mat-expansion-panel>
+<!-- </mat-accordion> -->
