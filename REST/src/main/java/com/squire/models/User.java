@@ -40,16 +40,16 @@ public class User {
 	@ManyToMany(mappedBy = "users")
 	private List<Course> courses;
 	
-	@OneToOne
-	@JoinColumn(name="r_id")
-	private Role role;
+	
+	@Column(name="isInstructor")
+	private boolean isInstructor;
 
 	public User() {
 		super();
 	}
 
 	public User(int id, String username, String pass, String firstname, String lastname, List<Course> courses,
-			Role role) {
+			boolean isInstructor) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -57,7 +57,7 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.courses = courses;
-		this.role = role;
+		this.isInstructor = isInstructor;
 	}
 
 	public int getId() {
@@ -108,12 +108,12 @@ public class User {
 //		this.courses = courses;
 //	}
 
-	public Role getR_id() {
-		return role;
+	public boolean getIsInstructor() {
+		return isInstructor;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setIsInstructor(boolean isInstructor) {
+		this.isInstructor = isInstructor;
 	}
 
 	@Override

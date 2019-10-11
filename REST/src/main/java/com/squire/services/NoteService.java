@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.squire.models.Course;
 import com.squire.models.Note;
-import com.squire.models.Role;
 import com.squire.models.User;
 import com.squire.repositories.NoteRepository;
 

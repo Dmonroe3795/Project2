@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.squire.models.Course;
-import com.squire.models.Role;
 import com.squire.models.User;
 import com.squire.services.UserService;
 
@@ -38,13 +37,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/users/{id}/role", method = RequestMethod.GET)
-	public Role getUserRole(@PathVariable("id") int id) {
-		return us.getUser(id).getR_id();
-	}
-	
-	@RequestMapping(value = "/users/role/{id}", method = RequestMethod.GET)
-	public List<User> getUsersByRole(@PathVariable("id") int id) {
-		return us.getUsersByRole(id);
+	public boolean getUserRole(@PathVariable("id") int id) {
+		return us.getUser(id).getIsInstructor();
 	}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.POST, consumes = "application/json")
