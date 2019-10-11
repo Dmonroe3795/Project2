@@ -31,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { UploadFileDialogComponent } from './component/upload-file-dialog/upload-file-dialog.component';
+import { UploadFileDialogComponent } from './component/dialogs/upload-file-dialog/upload-file-dialog.component';
+import { AddUsersDialogComponent } from './component/dialogs/add-users-dialog/add-users-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
@@ -46,11 +47,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     CreateAccountComponent,
     CourseComponent,
     DashboardComponent,
-    UploadFileDialogComponent
+    UploadFileDialogComponent,
+    AddUsersDialogComponent
   ],
   entryComponents: [
     CourseComponent,
-    UploadFileDialogComponent
+    UploadFileDialogComponent,
+    AddUsersDialogComponent
   ],
   imports: [
     BrowserModule,

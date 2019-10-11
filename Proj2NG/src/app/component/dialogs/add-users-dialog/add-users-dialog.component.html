@@ -1,0 +1,26 @@
+<p>Select users to add to {{data.c.name}}</p>
+<div style="padding-bottom: 10px">
+    <div *ngFor="let user of availableUsers">
+        <span>
+            {{user.username}} <button (click)="selectUser(user)" mat-icon-button>
+                <mat-icon>add</mat-icon>
+            </button>
+        </span>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<p>Selected Users</p>
+<div *ngFor="let user of selectedUsers">
+    {{user.username}}
+</div>
+
+<div style="padding-top: 10px;">
+    <button style="margin-left: 30%; margin-right: 3%;" (click)="close()" mat-stroked-button>
+        Cancel
+    </button>
+    <button type="submit" (click)="onSubmit()" mat-stroked-button>
+        Submit
+    </button>
+</div>

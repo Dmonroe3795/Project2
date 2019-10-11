@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UploadFileDialogData } from '../course/course.component';
+import { UploadFileDialogData } from '../../course/course.component';
 import { Observable } from 'rxjs';
-import { course } from '../models/course';
+import { course } from '../../models/course';
 import { GlobalService } from 'src/app/services/global.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { note } from '../models/note';
+import { note } from '../../models/note';
 import { CourseService } from 'src/app/services/course.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/note.service';
