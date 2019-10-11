@@ -29,6 +29,15 @@ export class CourseService {
     return this.http.get<course[]>(url + u.id, options);
   }
 
+  createCourse(course: course) : Observable<course> {
+    let head = new HttpHeaders({ 'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'});
+    let options =  {headers: head}
+    let body = JSON.stringify(course);
+    console.log(body)
+    return this.http.post<course>("http://localhost:9090/courses", body, options);
+  }
+
   updateCourse(course: course) : Observable<course> {
     let head = new HttpHeaders({ 'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'});

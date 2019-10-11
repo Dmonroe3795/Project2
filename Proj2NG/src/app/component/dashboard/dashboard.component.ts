@@ -4,6 +4,14 @@ import { course } from '../models/course';
 import { Router } from '@angular/router';
 import { CourseService } from 'src/app/services/course.service';
 import { GlobalService } from 'src/app/services/global.service';
+import { NewCourseDialogComponent } from '../dialogs/new-course-dialog/new-course-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { user } from '../models/user';
+
+export interface NewCourseDialogData {
+  currUser : user;
+  userCourses : course[];
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +20,7 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router, private course : CourseService, private global :GlobalService) { 
-    // this.displayUserCourses();
-  }
+  constructor(private router: Router, private course : CourseService, private global :GlobalService, public newCourseDialog: MatDialog) { }
 
   ngOnInit() {
     this.displayUserCourses();
@@ -41,7 +47,12 @@ export class DashboardComponent implements OnInit {
       (response) => {
 
       }
-      // finally?
     )
+  }
+
+  openNewCourseDialog() {
+    const newCourseDialogRef = this.newCourseDialog.open(
+      NewCourseDialogComponent, {width: '300px', data: {currUser: this.global.currentUser, userCourses: this.allUserCourses}}
+    );
   }
 }

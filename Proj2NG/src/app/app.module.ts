@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
@@ -34,6 +35,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UploadFileDialogComponent } from './component/dialogs/upload-file-dialog/upload-file-dialog.component';
 import { AddUsersDialogComponent } from './component/dialogs/add-users-dialog/add-users-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NewCourseDialogComponent } from './component/dialogs/new-course-dialog/new-course-dialog.component';
 
 
 @NgModule({
@@ -48,12 +50,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     CourseComponent,
     DashboardComponent,
     UploadFileDialogComponent,
-    AddUsersDialogComponent
+    AddUsersDialogComponent,
+    NewCourseDialogComponent
   ],
   entryComponents: [
     CourseComponent,
     UploadFileDialogComponent,
-    AddUsersDialogComponent
+    AddUsersDialogComponent,
+    NewCourseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatRadioModule,
     MatListModule,
+    MatDividerModule,
     MatCheckboxModule,
     MatTabsModule,
     MatCardModule,
