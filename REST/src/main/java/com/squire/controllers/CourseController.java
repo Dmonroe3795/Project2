@@ -43,9 +43,7 @@ public class CourseController {
 	@RequestMapping(value = "/courses", method = RequestMethod.PUT, consumes = "application/json")
 	public Course updateCourse(@RequestBody Course course) {
 		
-//		return cs.updateCourse(course);
-		return null;
-		
+		return cs.updateCourse(course);		
 	}
 	
 	@RequestMapping(value = "/courses/{id}", method = RequestMethod.DELETE) 

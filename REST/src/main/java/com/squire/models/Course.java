@@ -2,6 +2,7 @@ package com.squire.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +20,7 @@ public class Course {
 	@Id
 	private int id;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="courses_notes_jt", 
 				joinColumns= @JoinColumn(name="c_id"),
 				inverseJoinColumns= @JoinColumn(name="n_id"))

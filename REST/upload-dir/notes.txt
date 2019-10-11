@@ -1,0 +1,94 @@
+what is Java, why is it used so much?
+
+Java is an OOP language. It is widely used and has a lot of resources,
+libraries and an extensive API. It can be run on any operating system
+with a JVM. It uses automatic memory management so you do not have to 
+manage pointers. It uses strongly and statically typed data structures.
+
+The JDK contains tools to create and compile programs. The JRE provides
+tools (classes/runtime libraries) to run java programs. The JVM is 
+contained in the JRE and executes Java byte code. 
+
+You compile a program with javac filename.java and run with 
+java fileName.class (byte code)
+
+A class is a like a blueprint for and object and defines the states
+(variables) and behaviors (methods, local scope) the instances of the 
+class (Objects) will have. Classes contain a constructor that is used 
+to build an instance of the class. Blocks in a class are segmented 
+chunks of executable code (local scope). Static variables are shared
+and have the same value for all isntances of the class. It is the 
+broadest scope in Java, there is no global scope. Although public methods
+and variables can be accessed from outside of the class they are defined
+in. The value of an instance variable can be unique to each instance
+of the class.
+
+No pointers are used. Java is pass by value. The heap stores all 
+objects of the program and the stack keeps track of the current method 
+being called and the objects that are used in that method.
+
+Abstraction is when something is defined in an abstract class
+or interface that is not associated with a particular object. The details
+are not defined, but are intended to be implemented in another class.
+
+Polymorphism is a method or Object having the ability to take on many
+forms. Static (overloading) is when methods can be name the same,
+but take in a different set of parameters. Dynamic (overriding) is
+implementing a method differently in an implementing or extending class.
+Casting is used to refer to an object by the name of its parent class.
+
+Inheritance is when an object extends another class and takes on the
+states and behaviors of the parent class. Ability to reuse code. A class
+can only extend one class, but can implement many interfaces.
+
+Encapsulation is protecting data with the use of access modifiers.
+
+Constructors allocate memory for an object by using the new keyword
+and create an isntance of that class. A default noArg constructor is used
+if none is provided. A copy constructor takes in a class as an 
+argument and makes a copy. super() refers to the parent class and
+this() refers to the current class.
+
+Garbage collection is an automated process that frees up memory space in 
+the heap by removing objects that there is no current reference to. 
+It cannot be forced, but can be requested with System.gc().
+
+-------------------------------------------------------------------------
+
+Wrapper classes let you treat primitives as objects by using the Wrapper
+class. Autoboxing is the process of translating a primitive to a 
+Wrapper. Unboxing is the opposite.
+
+A String is an immutable object that stores character information. It is
+a final class. It cannot be extended, its value cannot change (immutable).
+methods: length(), compareTo(), indexOf(), toLowerCase(), equals() 
+(equals() comes from Object). The string pool holds the memory location
+of String objects. Strings share a memory location if they have the
+same value. Can force a new memory location with new keyword
+
+StringBuilder is mutable, StringBuffer is thread-safe StringBuilder
+
+Errors are when something goes wrong with the program (StackOVerflow, 
+OutOfMemory). You should not try to catch them.
+Compile time (checked) exceptions did not execute as intended. They
+shoudl be handled (FileNotFound, SQL).
+Unchecked (Runtime) exceptions cannot be anticipated and do not 
+need to be handled (nullPointer, arithmetic).
+Exceptions are objects. Errors and Exceptions inherit from Throwable class.
+Catch with a try catch block.
+Throws keyword throws exception to method caller. If it hits the JVM
+the application will stop. Define with errors might be encounted in the
+method signation with throws.
+Throw sends an exception down the stack until it is handled. Explitly 
+throws the exception. Do this to avoid handling exceptions in multiple
+parts of code.
+
+All classes inherit from Object class, the broadest class. Has toString() -
+prints memory location. equals() - checks if objects have the same 
+memory address. hashCode() - generates number to uniquely identify an
+object. It uses its fields in the csutom algorithm. They are not unique,
+but it si unlikely that they will be the same.
+
+Java Bean class has private variables, public getters and setters and 
+implements Serializable. Everything else is POJO (plain old Java object).
+---------------------------------------------------------------------------

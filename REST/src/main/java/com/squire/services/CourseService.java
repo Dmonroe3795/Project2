@@ -35,5 +35,9 @@ public class CourseService {
 	public List<Course> getAllCoursesOfUser(int id) {
 		return (List<Course>) cr.findByUsers_id(id);
 	}
+
+	public Course updateCourse(Course course) {
+		return cr.save(course);
+	}
 	
 }
