@@ -1,4 +1,4 @@
-<mat-expansion-panel *ngIf="isVisible()" style="border: 1px solid black">
+<mat-expansion-panel *ngIf="isVisible()" style="border: 1px solid black; margin-top: 5px; margin-bottom: 10px;">
     <mat-expansion-panel-header>
         <mat-panel-title>
             <h3>{{n.filename}}</h3>
@@ -11,11 +11,14 @@
     <div *ngIf="this.global.currentUser.isInstructor">
         <mat-checkbox color="primary">Visible</mat-checkbox>
     </div>
-    <p>Filename: {{n.filename}}</p>
-    <p>Available: {{n.visible}}</p>
-    <p>Author: {{n.trainer.username}}</p>
-    <p>{{fileText}}</p>
-    <a href={{downloadLink}} matTooltip="Download file">
-        <mat-icon color="primary">get_app</mat-icon>
-    </a>
+    <div style="overflow: auto;">
+        <p>Filename: {{n.filename}}</p>
+        <p>Available: {{n.visible}}</p>
+        <p>Author: {{n.trainer.username}}</p>
+        <pre style="overflow: auto;">
+            <code>{{fileText}}</code></pre>
+        <a href={{downloadLink}} matTooltip="Download file">
+            <mat-icon color="primary">get_app</mat-icon>
+        </a>
+    </div>
 </mat-expansion-panel>
