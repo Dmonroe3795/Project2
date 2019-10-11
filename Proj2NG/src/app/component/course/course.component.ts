@@ -30,6 +30,7 @@ export class CourseComponent implements OnInit {
   uploadForm: FormGroup;
   formData: FormData = new FormData();
   uploadFile: Observable<string> = this.noteService.uploadFile(this.formData);
+  selectedFile: string;
 
   noteData: note;
   addNote: Observable<note>;
@@ -39,11 +40,13 @@ export class CourseComponent implements OnInit {
   onFileSelect(event) {
     if (event.target.files.length > 0) {
       this.file = event.target.files[0];
+      this.selectedFile = this.file.name + ' selected.';
       this.uploadForm.get('files').setValue(this.file);
     }
   }
 
   onSubmit() {
+    this.selectedFile = 'Choose File';
     this.formData.set('file', this.uploadForm.get('files').value);
 
     this.uploadFile.subscribe(

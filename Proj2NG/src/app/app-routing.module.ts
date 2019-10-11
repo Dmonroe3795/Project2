@@ -11,7 +11,7 @@ const routes: Routes = [
   // {path : "nav", component : DashboardComponent, outlet: 'content'},
   {path : "dashboard", component : DashboardComponent},
   {path : "landing", component : LandingComponent},
-  {path : '', redirectTo: '/login', pathMatch : 'full'}
+  {path : '', redirectTo: '/landing', pathMatch : 'full'}
 ];
 
 @NgModule({
