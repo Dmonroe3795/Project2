@@ -10,7 +10,6 @@
 
     <mat-tab-group>
         <mat-tab label="Notes">
-
             <button *ngIf="this.global.currentUser.isInstructor" type="submit" (click)="openUploadDialog()"
                 mat-icon-button matTooltip="Upload file">
                 <mat-icon>note_add</mat-icon>
@@ -27,7 +26,7 @@
             </div>
         </mat-tab>
         <mat-tab label="Users">
-            <button *ngIf="this.global.currentUser.isInstructor" type="submit" mat-icon-button matTooltip="Add user">
+            <button *ngIf="this.global.currentUser.isInstructor"  (click)="openAddUserDialog()" mat-icon-button matTooltip="Add user">
                 <mat-icon color="primary">person_add</mat-icon>
             </button>
         </mat-tab>

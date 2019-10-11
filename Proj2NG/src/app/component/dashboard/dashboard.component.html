@@ -1,4 +1,8 @@
 <mat-accordion style="padding-left: 25%; background-color: white;">
+    <button *ngIf="this.global.currentUser.isInstructor" (click)="openNewCourseDialog()" mat-icon-button
+        matTooltip="Add a Course">
+        <mat-icon>note_add</mat-icon>
+    </button>
     <div *ngIf="noCourses" style="padding-left:2%">
         <p>No Current Courses</p>
     </div>

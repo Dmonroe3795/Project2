@@ -9,7 +9,7 @@
         </mat-panel-description>
     </mat-expansion-panel-header>
     <div *ngIf="this.global.currentUser.isInstructor">
-        <mat-checkbox color="primary">Visible</mat-checkbox>
+        <mat-checkbox color="primary" [checked]="n.visible" (change)="changeVisibility()">Visible</mat-checkbox>
     </div>
     <div style="overflow: auto;">
         <mat-divider color="primary"></mat-divider>

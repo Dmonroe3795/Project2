@@ -35,6 +35,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UploadFileDialogComponent } from './component/dialogs/upload-file-dialog/upload-file-dialog.component';
 import { AddUsersDialogComponent } from './component/dialogs/add-users-dialog/add-users-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NewCourseDialogComponent } from './component/dialogs/new-course-dialog/new-course-dialog.component';
 
 
 @NgModule({
@@ -49,12 +50,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     CourseComponent,
     DashboardComponent,
     UploadFileDialogComponent,
-    AddUsersDialogComponent
+    AddUsersDialogComponent,
+    NewCourseDialogComponent
   ],
   entryComponents: [
     CourseComponent,
     UploadFileDialogComponent,
-    AddUsersDialogComponent
+    AddUsersDialogComponent,
+    NewCourseDialogComponent
   ],
   imports: [
     BrowserModule,
