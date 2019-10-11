@@ -14,8 +14,8 @@
             -->
         <mat-tab-group>
             <mat-tab label="Notes">
-                <button *ngIf="this.global.currentUser.isTrainer" type="submit" (click)="openUploadDialog()" mat-icon-button matTooltip="Upload file">
-                    <mat-icon>note_add</mat-icon>
+                <button *ngIf="this.global.currentUser.isInstructor" type="submit" (click)="openUploadDialog()" mat-icon-button matTooltip="Upload file">
+                    <mat-icon color="primary">note_add</mat-icon>
                 </button>
                 <!--
             </form>
@@ -28,8 +28,8 @@
                 </div>
             </mat-tab>
             <mat-tab label="Users">
-                <button *ngIf="this.global.currentUser.isTrainer" type="submit" mat-icon-button matTooltip="Add user">
-                    <mat-icon>person_add</mat-icon>
+                <button *ngIf="this.global.currentUser.isInstructor" type="submit" mat-icon-button matTooltip="Add user">
+                    <mat-icon color="primary">person_add</mat-icon>
                 </button>
             </mat-tab>
         </mat-tab-group>

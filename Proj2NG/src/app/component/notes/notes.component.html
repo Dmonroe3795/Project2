@@ -8,12 +8,14 @@
             {{n.trainer.lastname}}
         </mat-panel-description>
     </mat-expansion-panel-header>
-
+    <div *ngIf="this.global.currentUser.isInstructor">
+        <mat-checkbox color="primary">Visible</mat-checkbox>
+    </div>
     <p>Filename: {{n.filename}}</p>
     <p>Available: {{n.visible}}</p>
     <p>Author: {{n.trainer.username}}</p>
     <p>{{fileText}}</p>
     <a href={{downloadLink}} matTooltip="Download file">
-        <mat-icon>get_app</mat-icon>
+        <mat-icon color="primary">get_app</mat-icon>
     </a>
 </mat-expansion-panel>
