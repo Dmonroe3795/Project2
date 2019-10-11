@@ -1,18 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { course } from '../models/course';
 import { GlobalService } from 'src/app/services/global.service';
-import { NoteService } from 'src/app/services/note.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { note } from '../models/note';
-import { CourseService } from 'src/app/services/course.service';
 import { MatDialog } from '@angular/material/dialog';
-import { UploadFileDialogComponent } from '../upload-file-dialog/upload-file-dialog.component';
+import { UploadFileDialogComponent } from '../dialogs/upload-file-dialog/upload-file-dialog.component';
+import { AddUsersDialogComponent } from '../dialogs/add-users-dialog/add-users-dialog.component';
 import { user } from '../models/user';
 
 export interface UploadFileDialogData {
   c: course;
   currUser: user;
+}
+
+export interface AddUsersDialogData {
+  c: course;
 }
 
 @Component({
@@ -23,7 +23,7 @@ export interface UploadFileDialogData {
 
 export class CourseComponent implements OnInit {
 
-  constructor(private global: GlobalService, private noteService: NoteService, private courseService: CourseService, private formBuilder: FormBuilder, public uploadDialog: MatDialog) { }
+  constructor(private global: GlobalService, public uploadDialog: MatDialog, public addUserDialog: MatDialog) { }
 
   ngOnInit() { }
 
@@ -33,6 +33,12 @@ export class CourseComponent implements OnInit {
   openUploadDialog() {
     const uploadDialogRef = this.uploadDialog.open(
       UploadFileDialogComponent, {width: '300px', data: {c: this.c, currUser: this.global.currentUser}}
+    );
+  }
+
+  openAddUserDialog() {
+    const addUserDialogRef = this.addUserDialog.open(
+      AddUsersDialogComponent, {width: '500px', data: {c: this.c}}
     );
   }
 }
