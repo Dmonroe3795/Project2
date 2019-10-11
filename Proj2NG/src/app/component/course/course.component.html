@@ -1,21 +1,27 @@
 <!-- <h3>{{c.id}}. {{c.name}}</h3> -->
 <!-- <p>{{c.users.length}} Students</p> -->
-<mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="border: 0.5px solid black">
+<mat-accordion style="width: 75%; padding-left: 25%">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        style="border: 0.5px solid black">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <h3>{{c.name}}</h3>
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-            <input type="file" (change)="onFileSelect($event)" name="fileSelect" id="fileSelector"/>
-            <button type="submit">Upload</button>
-        </form>
+        <div style="display: inline;">
+            <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+                <input type="file" (change)="onFileSelect($event)" name="fileSelect" id="fileSelector" />
 
-        <button *ngIf="global.currentUser.r_id == 1">Trainer Only Button</button>
+                <button type="submit" mat-icon-button>
+                    <mat-icon>note_add</mat-icon>
+                </button>
+
+            </form>
+        </div>
+
         <div *ngFor="let no of c.notes">
-            {{no}}
-            <app-notes [n]="no">    
+
+            <app-notes [n]="no">
             </app-notes>
         </div>
     </mat-expansion-panel>
