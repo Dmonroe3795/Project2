@@ -6,6 +6,14 @@ import { NoteService } from 'src/app/services/note.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { note } from '../models/note';
 import { CourseService } from 'src/app/services/course.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadFileDialogComponent } from '../upload-file-dialog/upload-file-dialog.component';
+import { user } from '../models/user';
+
+export interface UploadFileDialogData {
+  c: course;
+  currUser: user;
+}
 
 @Component({
   selector: 'app-course',
@@ -15,53 +23,16 @@ import { CourseService } from 'src/app/services/course.service';
 
 export class CourseComponent implements OnInit {
 
-  constructor(private global: GlobalService, private noteService: NoteService, private courseService: CourseService, private formBuilder: FormBuilder) { }
+  constructor(private global: GlobalService, private noteService: NoteService, private courseService: CourseService, private formBuilder: FormBuilder, public uploadDialog: MatDialog) { }
 
-  ngOnInit() {
-    this.uploadForm = this.formBuilder.group({
-      files: ['']
-    });
-  }
+  ngOnInit() { }
 
 
   @Input() c: course;
 
-  file: any;
-  uploadForm: FormGroup;
-  formData: FormData = new FormData();
-  uploadFile: Observable<string> = this.noteService.uploadFile(this.formData);
-  selectedFile: string;
-
-  noteData: note;
-  addNote: Observable<note>;
-
-  updateCourse: Observable<course>;
-
-  onFileSelect(event) {
-    if (event.target.files.length > 0) {
-      this.file = event.target.files[0];
-      this.selectedFile = this.file.name + ' selected.';
-      this.uploadForm.get('files').setValue(this.file);
-    }
-  }
-
-  onSubmit() {
-    this.selectedFile = 'Choose File';
-    this.formData.set('file', this.uploadForm.get('files').value);
-
-    this.uploadFile.subscribe(
-      (response) => {
-        this.noteData = new note(0, response, true, this.global.currentUser);
-        this.c.notes.push(this.noteData);
-        
-        this.courseService.updateCourse(this.c).subscribe((newCourse) => {
-          this.c = newCourse;
-          this.uploadForm.get('files').setValue(null);
-        }, res=>{console.log(res)})
-      },
-      (response) => {
-        console.log(response);
-      }
-    )
+  openUploadDialog() {
+    const uploadDialogRef = this.uploadDialog.open(
+      UploadFileDialogComponent, {width: '300px', data: {c: this.c, currUser: this.global.currentUser}}
+    );
   }
 }

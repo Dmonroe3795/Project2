@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
             console.log(response);
             this.u = response;
             this.global.currentUser=this.u;
+            console.log(this.global.currentUser.lastname + ' login global')
             this.router.navigate(['/dashboard']);
           }
         },
