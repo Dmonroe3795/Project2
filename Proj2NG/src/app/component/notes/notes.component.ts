@@ -25,13 +25,16 @@ export class NotesComponent implements OnInit {
   file: Observable<string>;
   fileText: string;
   downloadLink :string;
-  isVisible() : boolean{
+  updateNote: Observable<note>;
+
+  isVisible() : boolean {
     if(this.global.currentUser.isInstructor)
       return true;
     if(this.n.visible)
       return true;
     return false
   }
+
   getNote() {
 
     this.file = this.noteServ.readFile(this.n.filename);
@@ -43,6 +46,16 @@ export class NotesComponent implements OnInit {
       },
       (response) => {
         console.log(response)
+      }
+    )
+  }
+
+  changeVisibility() {
+    this.n.visible = !this.n.visible;
+    this.updateNote = this.noteServ.createNote(this.n);
+    this.updateNote.subscribe(
+      (response) => {
+        this.n = response;
       }
     )
   }

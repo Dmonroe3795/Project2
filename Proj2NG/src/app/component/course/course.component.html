@@ -16,10 +16,6 @@
                     mat-icon-button matTooltip="Upload file">
                     <mat-icon>note_add</mat-icon>
                 </button>
-                <button *ngIf="this.global.currentUser.isTrainer" (click)="openAddUserDialog()"
-                    mat-icon-button  matTooltip="Add user to course">
-                    <mat-icon>person_add</mat-icon>
-                </button>
 
                 <div *ngFor="let no of c.notes">
 
@@ -28,7 +24,7 @@
                 </div>
             </mat-tab>
             <mat-tab label="Users">
-                <button *ngIf="this.global.currentUser.isInstructor" type="submit" mat-icon-button matTooltip="Add user">
+                <button *ngIf="this.global.currentUser.isInstructor"  (click)="openAddUserDialog()" mat-icon-button matTooltip="Add user">
                     <mat-icon color="primary">person_add</mat-icon>
                 </button>
             </mat-tab>
