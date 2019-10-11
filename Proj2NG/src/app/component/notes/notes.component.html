@@ -9,10 +9,11 @@
         </mat-panel-description>
     </mat-expansion-panel-header>
 
-<p>Filename: {{n.filename}}</p>
-<p>Available: {{n.visible}}</p>
-<p>Author: {{n.trainer.username}}</p>
-<p>{{fileText}}</p>
-<a href={{downloadLink}}>Download</a>
+    <p>Filename: {{n.filename}}</p>
+    <p>Available: {{n.visible}}</p>
+    <p>Author: {{n.trainer.username}}</p>
+    <p>{{fileText}}</p>
+    <a href={{downloadLink}} matTooltip="Download file">
+        <mat-icon>get_app</mat-icon>
+    </a>
 </mat-expansion-panel>
-
