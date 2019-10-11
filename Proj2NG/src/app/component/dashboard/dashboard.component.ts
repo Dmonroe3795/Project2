@@ -25,15 +25,18 @@ export class DashboardComponent implements OnInit {
 
   allCoursesObs : Observable<course[]>;
   allUserCourses : course[] = new Array<course>();
+  noCourses : boolean;
   @Input()
-  currentUserId :number;
+  currentUserId : number;
 
   displayUserCourses() {
-    this.allCoursesObs = this.course.getUserCourses(this.global.currentUser.id)
+    console.log(this.global.currentUser)
+    this.allCoursesObs = this.course.getUserCourses(this.global.currentUser)
     this.allCoursesObs.subscribe(
       (response) => {
         console.log("allusercourses: ",response)
         this.allUserCourses = response;
+        this.noCourses = this.allUserCourses.length == 0;
       },
       (response) => {
 

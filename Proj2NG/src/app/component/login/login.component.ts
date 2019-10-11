@@ -47,10 +47,6 @@ export class LoginComponent implements OnInit {
             console.log(response);
             this.u = response;
             this.global.currentUser=this.u;
-            if(this.u.isInstructor){
-              this.global.isTrainer = true;
-            }
-            console.log(this.global.currentUser);
             this.router.navigate(['/dashboard']);
           }
         },
