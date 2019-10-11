@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   us :string;
   ps :string;
   result :string;
-  u: user = new user(0, null, null, null, null, null, 0);
+  u: user = new user(0, null, null, null, null, null, false);
   currUser: Observable<user>;
   login() {
     if (this.us == null || this.ps == null ) {
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
             console.log(response);
             this.u = response;
             this.global.currentUser=this.u;
-            if(this.u.r_id.id == 1){
+            if(this.u.isInstructor){
               this.global.isTrainer = true;
             }
             console.log(this.global.currentUser);
