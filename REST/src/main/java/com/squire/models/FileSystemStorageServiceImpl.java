@@ -39,16 +39,6 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		try {
 			Path currFile = load(filename);
 			Resource resource = new UrlResource(currFile.toUri());
-			if(!(resource.exists() || resource.isReadable())) {
-				
-				try(InputStream is = file.getInputStream()){
-					
-					Files.copy(is, this.rootLocation.resolve(filename),
-							StandardCopyOption.REPLACE_EXISTING);
-					
-				}
-				
-			}
 			
 			if(file.isEmpty()) {
 				
@@ -62,6 +52,17 @@ public class FileSystemStorageServiceImpl implements StorageService {
 				throw new StorageException(
 						"Cannot store file with relative path outside current directory "
 						+ filename);
+				
+			}
+			
+			if(!(resource.exists() || resource.isReadable())) {
+				
+				try(InputStream is = file.getInputStream()){
+					
+					Files.copy(is, this.rootLocation.resolve(filename),
+							StandardCopyOption.REPLACE_EXISTING);
+					
+				}
 				
 			}
 			
