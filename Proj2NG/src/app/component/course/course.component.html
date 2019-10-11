@@ -1,5 +1,6 @@
 <!-- <h3>{{c.id}}. {{c.name}}</h3> -->
 <!-- <p>{{c.users.length}} Students</p> -->
+
 <!-- <mat-accordion style="width: 75%;"> -->
 <mat-expansion-panel style="border: 0.5px solid black; margin-bottom: 20px;">
     <mat-expansion-panel-header>
@@ -21,15 +22,26 @@
 
             <div *ngFor="let no of c.notes">
 
-                <app-notes [n]="no"></app-notes>
-
-            </div>
-        </mat-tab>
-        <mat-tab label="Users">
-            <button *ngIf="this.global.currentUser.isInstructor"  (click)="openAddUserDialog()" mat-icon-button matTooltip="Add user">
-                <mat-icon color="primary">person_add</mat-icon>
-            </button>
-        </mat-tab>
-    </mat-tab-group>
-</mat-expansion-panel>
+                    <app-notes [n]="no">
+                    </app-notes>
+                </div>
+            </mat-tab>
+            <mat-tab label="Users">
+                <button *ngIf="this.global.currentUser.isInstructor" (click)="openAddUserDialog()" mat-icon-button
+                    matTooltip="Add user">
+                    <mat-icon color="primary">person_add</mat-icon>
+                </button>
+                <mat-list role="list">
+                    <mat-list-item *ngFor="let user of c.users">
+                        <button *ngIf="this.global.currentUser.isInstructor"
+                            (click)="removeUser(user)" mat-icon-button>
+                            <mat-icon color="primary">delete</mat-icon>
+                        </button>
+                        {{user.username}}
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-expansion-panel>
 <!-- </mat-accordion> -->
