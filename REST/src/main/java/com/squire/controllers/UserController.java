@@ -1,6 +1,6 @@
 package com.squire.controllers;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.squire.models.Course;
 import com.squire.models.User;
 import com.squire.services.UserService;
 
@@ -51,6 +50,9 @@ public class UserController {
 		us.deleteUser(us.getUser(id));
 	}
 	
-	
+	@RequestMapping(value = "/users/courses/{id}/not", method = RequestMethod.GET)
+	public Set<User> getUsersNotInCourse(@PathVariable("id") int id) {
+		return us.getUsersNotInCourse(id);
+	}
 	
 }
