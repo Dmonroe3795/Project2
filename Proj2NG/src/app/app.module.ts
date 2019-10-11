@@ -17,15 +17,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
 import { NotesComponent } from './component/notes/notes.component';
 import { CourseComponent } from './component/course/course.component';
 import { MatCardModule } from '@angular/material/card';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { LandingComponent } from './component/landing/landing.component';
 import { CreateAccountComponent } from './component/create-account/create-account.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -63,7 +65,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatRadioModule,
     MatListModule,
+    MatCheckboxModule,
     MatTabsModule,
     MatCardModule,
     MatInputModule,
