@@ -12,11 +12,14 @@
         <mat-checkbox color="primary">Visible</mat-checkbox>
     </div>
     <div style="overflow: auto;">
+        <mat-divider color="primary"></mat-divider>
         <p>Filename: {{n.filename}}</p>
         <p>Available: {{n.visible}}</p>
         <p>Author: {{n.trainer.username}}</p>
+        <mat-divider></mat-divider>
         <pre style="white-space:pre-line">
             <code>{{fileText}}</code></pre>
+        <mat-divider color="primary"></mat-divider>
         <a href={{downloadLink}} matTooltip="Download file">
             <mat-icon color="primary">get_app</mat-icon>
         </a>

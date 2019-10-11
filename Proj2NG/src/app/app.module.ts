@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
@@ -70,6 +71,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatRadioModule,
     MatListModule,
+    MatDividerModule,
     MatCheckboxModule,
     MatTabsModule,
     MatCardModule,
