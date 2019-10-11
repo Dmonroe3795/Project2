@@ -1,19 +1,19 @@
-<mat-expansion-panel style="border: 1px solid black">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            <h3>{{n.filename}}</h3>
-        </mat-panel-title>
-        <mat-panel-description style="padding-top: 2.5%">
-            {{n.trainer.firstname}}
-            {{n.trainer.lastname}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+<div *ngIf="isVisible()">
+    <mat-expansion-panel style="border: 1px solid black">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h3>{{n.filename}}</h3>
+            </mat-panel-title>
+            <mat-panel-description style="padding-top: 2.5%">
+                {{n.trainer.firstname}}
+                {{n.trainer.lastname}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <p>Filename: {{n.filename}}</p>
-    <p>Available: {{n.visible}}</p>
-    <p>Author: {{n.trainer.username}}</p>
-    <p>{{fileText}}</p>
-    <a href={{downloadLink}} matTooltip="Download file">
-        <mat-icon>get_app</mat-icon>
-    </a>
-</mat-expansion-panel>
+        <p>Filename: {{n.filename}}</p>
+        <p>Available: {{n.visible}}</p>
+        <p>Author: {{n.trainer.username}}</p>
+        <p>{{fileText}}</p>
+        <a href={{downloadLink}}>Download</a>
+    </mat-expansion-panel>
+</div>

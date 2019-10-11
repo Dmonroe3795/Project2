@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { note } from '../models/note';
 import { NoteService } from 'src/app/services/note.service';
 import { Observable } from 'rxjs';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-notes',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class NotesComponent implements OnInit {
 
-  constructor(private noteServ: NoteService) {
+  constructor(private noteServ: NoteService, private global: GlobalService) {
   }
 
   ngOnInit() {
@@ -24,6 +25,16 @@ export class NotesComponent implements OnInit {
   file: Observable<string>;
   fileText: string;
   downloadLink :string;
+  isVisible() : boolean{
+    //console.log(this.n.visible, "VISIBLE")
+    if(this.global.currentUser.isInstructor){
+      return true
+    }
+    if(this.n.visible){
+      return true;
+    }
+    return false;
+  }
   getNote() {
 
     this.file = this.noteServ.readFile(this.n.filename);
