@@ -41,7 +41,7 @@ public class User {
 	private List<Course> courses;
 	
 	
-	@Column(name="isInstructor")
+	@Column(name="isinstructor")
 	private boolean isInstructor;
 
 	public User() {
