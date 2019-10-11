@@ -35,9 +35,9 @@ public class CourseController {
 	
 	@RequestMapping(value = "/courses", method = RequestMethod.POST, consumes = "application/json")
 	public Course createCourse(@RequestBody Course course) {
-		System.out.println(course.toString() + " course1test");
 		
 		return cs.createCourse(course);		
+	
 	}
 	
 	@RequestMapping(value = "/courses", method = RequestMethod.PUT, consumes = "application/json")
@@ -50,6 +50,12 @@ public class CourseController {
 	public void deleteCourseById(@PathVariable("id") int id) {
 		
 //		cs.deleteCourse(cs.getCourseById(id));
+		
+	}
+	
+	@RequestMapping(value = "/courses/trainers/{id}", method = RequestMethod.GET)
+	public List<Course> getTrainerCourses(@PathVariable("id") int id) {
+		return cs.getAllCoursesOfTrainer(id);
 		
 	}
 	
