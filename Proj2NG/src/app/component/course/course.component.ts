@@ -29,7 +29,7 @@ export class CourseComponent implements OnInit {
 
 
   @Input() c: course;
-  
+
   openUploadDialog() {
     const uploadDialogRef = this.uploadDialog.open(
       UploadFileDialogComponent, {width: '300px', data: {c: this.c, currUser: this.global.currentUser}}
