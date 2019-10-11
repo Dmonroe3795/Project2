@@ -9,7 +9,7 @@ export class user{
     firstname : string;
     lastname : string;
     courses : Array<course>;
-    r_id : number;
+    isInstructor : boolean;
 
 
     
@@ -20,14 +20,14 @@ export class user{
         firstname : string,
         lastname : string,
         courses : Array<course>,
-        r_id : any){
+        isInstructor : boolean){
         this.id = id;
         this.username = username;
         this.pass = pass;
         this.firstname = firstname;
         this.lastname = lastname;
         this.courses = courses;
-        this.r_id = r_id;
+        this.isInstructor = isInstructor;
     }
 
 }
