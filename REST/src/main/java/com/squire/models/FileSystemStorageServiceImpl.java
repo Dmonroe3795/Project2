@@ -37,6 +37,18 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 		
 		try {
+			Path currFile = load(filename);
+			Resource resource = new UrlResource(currFile.toUri());
+			if(!(resource.exists() || resource.isReadable())) {
+				
+				try(InputStream is = file.getInputStream()){
+					
+					Files.copy(is, this.rootLocation.resolve(filename),
+							StandardCopyOption.REPLACE_EXISTING);
+					
+				}
+				
+			}
 			
 			if(file.isEmpty()) {
 				
@@ -53,12 +65,7 @@ public class FileSystemStorageServiceImpl implements StorageService {
 				
 			}
 			
-			try(InputStream is = file.getInputStream()){
-				
-				Files.copy(is, this.rootLocation.resolve(filename),
-						StandardCopyOption.REPLACE_EXISTING);
-				
-			}
+			
 			
 		} catch(IOException e) {
 			
