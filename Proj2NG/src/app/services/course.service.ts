@@ -16,10 +16,10 @@ export class CourseService {
     let head = new HttpHeaders({ 'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'});
     let options =  {headers: head}
-    // let url = "http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/courses";
+    let url = "http://ec2-54-89-99-128.compute-1.amazonaws.com:8888/courses";
 
 
-    let url = "http://localhost:9090/courses";
+    // let url = "http://localhost:9090/courses";
     // console.log(this.global.currentUser);
     
     if(u.isInstructor) {

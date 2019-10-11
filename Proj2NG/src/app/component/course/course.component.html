@@ -12,17 +12,26 @@
             <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
                 <input type="file" (change)="onFileSelect($event)" name="fileSelect" id="fileSelector" />
             -->
-                <button type="submit" (click)="openUploadDialog()" mat-icon-button>
+        <mat-tab-group>
+            <mat-tab label="Notes">
+                <button *ngIf="this.global.currentUser.isTrainer" type="submit" (click)="openUploadDialog()" mat-icon-button matTooltip="Upload file">
                     <mat-icon>note_add</mat-icon>
                 </button>
-<!--
+                <!--
             </form>
         </div> -->
 
-        <div *ngFor="let no of c.notes">
+                <div *ngFor="let no of c.notes">
 
-            <app-notes [n]="no">
-            </app-notes>
-        </div>
+                    <app-notes [n]="no">
+                    </app-notes>
+                </div>
+            </mat-tab>
+            <mat-tab label="Users">
+                <button *ngIf="this.global.currentUser.isTrainer" type="submit" mat-icon-button matTooltip="Add user">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </mat-tab>
+        </mat-tab-group>
     </mat-expansion-panel>
 </mat-accordion>
