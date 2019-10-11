@@ -12,6 +12,8 @@ import com.squire.repositories.CourseRepository;
 public class CourseService {
 	@Autowired
 	CourseRepository cr;
+	@Autowired
+	UserService us;
 	
 	public Course createCourse(Course c) {
 		return cr.save(c);
@@ -30,6 +32,10 @@ public class CourseService {
 
 	public List<Course> getAllCourses() {
 		return (List<Course>) cr.findAll();
+	}
+	
+	public List<Course> getAllCoursesOfTrainer(int id) {
+		return (List<Course>) cr.findByTrainer(us.getUser(id));
 	}
 	
 	public List<Course> getAllCoursesOfUser(int id) {
