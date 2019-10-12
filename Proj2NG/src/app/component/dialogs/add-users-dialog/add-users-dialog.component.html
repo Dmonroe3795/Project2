@@ -1,21 +1,24 @@
-<p>Select users to add to {{data.c.name}}</p>
+<h4 *ngIf="availableUsers.length > 0">Select users to add to {{data.c.name}}</h4>
 <div style="padding-bottom: 10px">
-    <div *ngFor="let user of availableUsers">
-        <span>
+    <mat-list *ngFor="let user of availableUsers">
+        <mat-list-item>
             {{user.username}} <button (click)="selectUser(user)" mat-icon-button>
-                <mat-icon>add</mat-icon>
+                <mat-icon color="primary">add</mat-icon>
             </button>
-        </span>
-    </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
 </div>
 
-<mat-divider></mat-divider>
-
-<p>Selected Users</p>
-<div *ngFor="let user of selectedUsers">
-    {{user.username}}
+<h4 *ngIf="selectedUsers.length > 0">Selected Users</h4>
+<div>
+    <mat-list *ngFor="let user of selectedUsers">
+        <mat-list-item>
+        {{user.username}}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
 </div>
-
 <div style="padding-top: 10px;">
     <button style="margin-left: 30%; margin-right: 3%;" (click)="close()" mat-stroked-button>
         Cancel
