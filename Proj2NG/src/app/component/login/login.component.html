@@ -1,7 +1,4 @@
 <div id="loginForm">
-  <!-- <div *ngFor="let course of allUserCourses">
-      <app-course [c] = "course"></app-course>
-    </div> -->
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -9,9 +6,6 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <!-- <fieldset> -->
-      <!-- Username:<br> -->
-      <!-- <legend>Login Information</legend> -->
       <mat-form-field>
         <input type="text" [(ngModel)]="us" matInput placeholder="Username">
       </mat-form-field>
@@ -24,27 +18,5 @@
     <mat-card-actions>
       <button (click)="login()" mat-stroked-button>Login</button>
     </mat-card-actions>
-    <!-- </fieldset> -->
   </mat-card>
-  <!-- <p>{{global.currentUser.r_id.id}}</p>
-    <button *ngIf="global.isTrainer">Trainer Only Button</button> -->
 </div>
-
-<!--Work for current version of login page-->
-
-<!-- <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" [formControl]="emailFormControl"
-             [errorStateMatcher]="matcher">
-      <mat-hint>Errors appear instantly!</mat-hint>
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-      <button (click) = "login()"
-        mat-stroked-button
-        >Login</button>
-    </mat-form-field>
-  </form> -->

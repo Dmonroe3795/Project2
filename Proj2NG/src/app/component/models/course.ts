@@ -1,7 +1,7 @@
 import { note } from './note';
 import { user } from './user';
 
-export class course{
+export class course {
 
     id: number;
     notes: note[];
@@ -22,5 +22,5 @@ export class course{
         this.name = name;
         this.users = users;
     }
-    
+
 }

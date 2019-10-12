@@ -16,21 +16,21 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('note comp '+this.n)
+    console.log('note comp ' + this.n)
     this.getNote();
   }
 
-  @Input() n : note;
-  
+  @Input() n: note;
+
   file: Observable<string>;
   fileText: string;
-  downloadLink :string;
+  downloadLink: string;
   updateNote: Observable<note>;
 
-  isVisible() : boolean {
-    if(this.global.currentUser.isInstructor)
+  isVisible(): boolean {
+    if (this.global.currentUser.isInstructor)
       return true;
-    if(this.n.visible)
+    if (this.n.visible)
       return true;
     return false
   }

@@ -3,16 +3,16 @@ import { user } from './user';
 
 export class note {
 
-    id : number;
-    filename : string;
-    visible : boolean;
-    trainer : user;
+    id: number;
+    filename: string;
+    visible: boolean;
+    trainer: user;
 
     constructor(
-        id : number,
-        filename : string,
-        visible : boolean,
-        trainer : user
+        id: number,
+        filename: string,
+        visible: boolean,
+        trainer: user
     ) {
         this.id = id;
         this.filename = filename;

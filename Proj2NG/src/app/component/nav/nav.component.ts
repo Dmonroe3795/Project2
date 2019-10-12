@@ -20,12 +20,12 @@ export class NavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public global : GlobalService, public router :Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, public global: GlobalService, public router: Router) { }
 
   logout() {
 
     this.global.currentUser = new user(0, null, null, null, null, null, false);
     this.router.navigate(['/landing']);
-    
+
   }
 }

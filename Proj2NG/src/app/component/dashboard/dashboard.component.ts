@@ -9,8 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { user } from '../models/user';
 
 export interface NewCourseDialogData {
-  currUser : user;
-  userCourses : course[];
+  currUser: user;
+  userCourses: course[];
 }
 
 @Component({
@@ -20,27 +20,27 @@ export interface NewCourseDialogData {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router, private course : CourseService, private global :GlobalService, public newCourseDialog: MatDialog) { }
+  constructor(private router: Router, private course: CourseService, private global: GlobalService, public newCourseDialog: MatDialog) { }
 
   ngOnInit() {
     this.displayUserCourses();
   }
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     this.displayUserCourses();
   }
 
-  allCoursesObs : Observable<course[]>;
-  allUserCourses : course[] = new Array<course>();
-  noCourses : boolean;
+  allCoursesObs: Observable<course[]>;
+  allUserCourses: course[] = new Array<course>();
+  noCourses: boolean;
   @Input()
-  currentUserId : number;
+  currentUserId: number;
 
   displayUserCourses() {
     console.log(this.global.currentUser)
     this.allCoursesObs = this.course.getUserCourses(this.global.currentUser)
     this.allCoursesObs.subscribe(
       (response) => {
-        console.log("allusercourses: ",response)
+        console.log("allusercourses: ", response)
         this.allUserCourses = response;
         this.noCourses = this.allUserCourses.length == 0;
       },
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   openNewCourseDialog() {
     const newCourseDialogRef = this.newCourseDialog.open(
-      NewCourseDialogComponent, {width: '300px', data: {currUser: this.global.currentUser, userCourses: this.allUserCourses}}
+      NewCourseDialogComponent, { width: '300px', data: { currUser: this.global.currentUser, userCourses: this.allUserCourses } }
     );
   }
 }
