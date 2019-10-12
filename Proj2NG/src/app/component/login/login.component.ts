@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-// import { Observable } from 'rxjs';
 import { AccountService } from '../../services/account.service';
 import { Observable } from 'rxjs';
 import { user } from '../models/user';
 import { GlobalService } from 'src/app/services/global.service';
-
-// import { course } from '../models/course';
-// import { CourseService } from 'src/app/services/course.service';
-// import { note } from '../models/note';
 
 @Component({
   selector: 'app-login',
@@ -17,36 +12,35 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private userv :AccountService,private global: GlobalService) { 
-    // this.displayUserCourses();
+  constructor(private router: Router, private userv: AccountService, private global: GlobalService) {
   }
 
   ngOnInit() {
   }
 
-  us :string;
-  ps :string;
-  result :string;
+  us: string;
+  ps: string;
+  result: string;
   u: user = new user(0, null, null, null, null, null, false);
   currUser: Observable<user>;
   login() {
-    if (this.us == null || this.ps == null ) {
+    if (this.us == null || this.ps == null) {
       this.result = "Please enter a valid Username and Password."
     }
     else {
-      this.currUser = this.userv.login(this.us,this.ps);
-      
+      this.currUser = this.userv.login(this.us, this.ps);
+
       this.currUser.subscribe(
 
         (response) => {
-          if(response == null) {
+          if (response == null) {
             console.log("Calls first response")
             this.result = "Please enter a valid Username and Password."
           }
           else {
             console.log(response);
             this.u = response;
-            this.global.currentUser=this.u;
+            this.global.currentUser = this.u;
             console.log(this.global.currentUser.lastname + ' login global')
             this.router.navigate(['/dashboard']);
           }
@@ -56,27 +50,13 @@ export class LoginComponent implements OnInit {
 
           console.log("Failure! Called 2nd response");
           this.result = "Please enter a valid Username and Password."
-          
+
         }
-        
-      );  
+
+      );
     }
   }
 
 
-  // allCoursesObs : Observable<course[]> = this.course.getUserCourses(2);
-  // allUserCourses : course[] = [];
 
-  // displayUserCourses() {
-  //   this.allCoursesObs.subscribe(
-  //     (response) => {
-  //       this.allUserCourses = response;
-  //     },
-  //     (response) => {
-
-  //     }
-  //     // finally?
-  //   )
-  // }
-  
 }

@@ -27,7 +27,6 @@ export class CreateAccountComponent implements OnInit {
   createAcc: Observable<user>;
 
   signUp() {
-    // is instructor checkbox
     if (this.fn == null || this.ln == null || this.us == null || this.pw == null) {
       this.result = "Please enter all information."
     }

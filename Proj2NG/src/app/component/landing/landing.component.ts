@@ -9,7 +9,7 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private router : Router, private global :GlobalService) { }
+  constructor(private router: Router, private global: GlobalService) { }
 
   ngOnInit() {
   }

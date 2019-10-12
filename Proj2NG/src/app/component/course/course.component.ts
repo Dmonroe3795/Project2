@@ -35,13 +35,13 @@ export class CourseComponent implements OnInit {
 
   openUploadDialog() {
     const uploadDialogRef = this.uploadDialog.open(
-      UploadFileDialogComponent, {width: '300px', data: {c: this.c, currUser: this.global.currentUser}}
+      UploadFileDialogComponent, { width: '300px', data: { c: this.c, currUser: this.global.currentUser } }
     );
   }
 
   openAddUserDialog() {
     const addUserDialogRef = this.addUserDialog.open(
-      AddUsersDialogComponent, {width: '500px', data: {c: this.c}}
+      AddUsersDialogComponent, { width: '500px', data: { c: this.c } }
     );
   }
 

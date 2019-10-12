@@ -1,26 +1,26 @@
 import { course } from './course';
 import { role } from './role';
 
-export class user{
+export class user {
 
-    id : number;
-    username : string;
-    pass : string;
-    firstname : string;
-    lastname : string;
-    courses : Array<course>;
-    isInstructor : boolean;
+    id: number;
+    username: string;
+    pass: string;
+    firstname: string;
+    lastname: string;
+    courses: Array<course>;
+    isInstructor: boolean;
 
 
-    
 
-    constructor(id : number,
-        username : string,
-        pass : string,
-        firstname : string,
-        lastname : string,
-        courses : Array<course>,
-        isInstructor : boolean){
+
+    constructor(id: number,
+        username: string,
+        pass: string,
+        firstname: string,
+        lastname: string,
+        courses: Array<course>,
+        isInstructor: boolean) {
         this.id = id;
         this.username = username;
         this.pass = pass;
